@@ -1,0 +1,7 @@
+Flask==2.3.0
+Flask-CORS==4.0.0
+PyPDF2==3.0.1
+Pillow==10.4.0
+pytesseract==0.3.10
+fpdf==1.7.2
+Werkzeug==2.3.0

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExamGenie - AI-Powered Exam Predictor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dark.css">
+</head>
+<body>
+    <!-- Header -->
+<header class="header">
+    <div class="container header-content">
+        <div class="logo">
+            <span class="logo-icon">🧞</span>
+            <span class="logo-text">ExamGenie</span>
+        </div>
+        <nav class="nav">
+            <!-- User info will be dynamically inserted -->
+            <span id="welcomeUser" class="user-name" style="display:none;"></span>
+            <button id="loginBtn" class="btn btn-primary">Login</button>
+            <button id="logoutBtn" class="btn btn-secondary" style="display:none;">Logout</button>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </nav>
+    </div>
+</header>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Predict Your Future Exam Papers with AI</h1>
+            <p class="hero-subtitle">Upload previous question papers and let our AI analyze patterns to predict your next exam</p>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section class="upload-section">
+        <div class="container">
+            <div class="upload-card">
+                <h2 class="section-title">Upload Previous Papers</h2>
+                <p class="section-subtitle">Support for PDF and Image files (PNG, JPG, JPEG)</p>
+                
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📁</div>
+                    <p class="upload-text">Drag & Drop files here or click to browse</p>
+                    <input type="file" id="fileInput" multiple accept=".pdf,.png,.jpg,.jpeg" hidden>
+                    <button class="btn btn-secondary" onclick="document.getElementById('fileInput').click()">
+                        Choose Files
+                    </button>
+                </div>
+
+                <div id="fileList" class="file-list"></div>
+                
+                <button id="uploadBtn" class="btn btn-primary btn-large" style="display: none;">
+                    Upload & Extract Text
+                </button>
+            </div>
+
+            <!-- Extracted Text Display -->
+            <div id="extractedSection" class="extracted-section" style="display: none;">
+                <h2 class="section-title">Extracted Text</h2>
+                <div id="extractedText" class="extracted-text"></div>
+                
+                <button id="predictBtn" class="btn btn-success btn-large">
+                    🔮 Predict Future Paper
+                </button>
+            </div>
+
+            <!-- Predicted Paper Display -->
+            <div id="predictionSection" class="prediction-section" style="display: none;">
+                <h2 class="section-title">Predicted Exam Paper</h2>
+                <div id="predictionContent" class="prediction-content"></div>
+                
+                <button id="downloadBtn" class="btn btn-primary btn-large">
+                    📥 Download as PDF
+                </button>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+                <div class="spinner"></div>
+                <p>Processing your papers...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose ExamGenie?</h2>
+            
+            <div class="features-grid">
+                <!-- Feature Cards -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="feature-icon">📄</div>
+                            <h3>Multiple Upload</h3>
+                            <p>Upload multiple papers at once</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Smart Processing</h3>
+                            <p>Our AI processes PDFs and images simultaneously, extracting text with high accuracy using OCR technology.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="feature-icon">🔮</div>
+                            <h3>AI Prediction</h3>
+                            <p>Advanced pattern analysis</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Pattern Recognition</h3>
+                            <p>Analyzes question patterns, topic frequency, and exam trends to generate accurate predictions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="feature-icon">🌓</div>
+                            <h3>Dark Mode</h3>
+                            <p>Easy on your eyes</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Comfortable Viewing</h3>
+                            <p>Toggle between light and dark themes for comfortable studying at any time of day.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="feature-icon">📱</div>
+                            <h3>Responsive</h3>
+                            <p>Works on all devices</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Mobile Friendly</h3>
+                            <p>Fully responsive design works seamlessly on desktop, tablet, and mobile devices.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="feature-icon">📥</div>
+                            <h3>PDF Export</h3>
+                            <p>Download predictions</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Easy Sharing</h3>
+                            <p>Export predicted papers as PDF for easy sharing and printing.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="feature-icon">⚡</div>
+                            <h3>Fast & Secure</h3>
+                            <p>Quick processing</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Reliable Performance</h3>
+                            <p>Lightning-fast processing with secure file handling ensures your data stays safe.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 ExamGenie. Helping students ace their exams with AI.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

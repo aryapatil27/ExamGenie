@@ -1,0 +1,51 @@
+/* ExamGenie - Dark Mode Stylesheet */
+
+body.dark-mode {
+    --bg-color: #0f172a;
+    --surface-color: #1e293b;
+    --text-color: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --border-color: #334155;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode specific adjustments */
+body.dark-mode .upload-area:hover {
+    background-color: rgba(99, 102, 241, 0.1);
+}
+
+body.dark-mode .upload-area.drag-over {
+    background-color: rgba(99, 102, 241, 0.15);
+}
+
+body.dark-mode .flip-card-front {
+    background-color: var(--surface-color);
+}
+
+body.dark-mode .flip-card-front h3 {
+    color: var(--text-color);
+}
+
+body.dark-mode .theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .btn-social {
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .btn-social:hover {
+    border-color: var(--primary-color);
+    background-color: rgba(99, 102, 241, 0.1);
+}
+
+body.dark-mode .divider span {
+    background-color: var(--surface-color);
+}
+
+body.dark-mode .prediction-summary {
+    background-color: rgba(99, 102, 241, 0.15);
+}
